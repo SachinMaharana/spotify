@@ -1,3 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  @responsive {
+    .scroll-hidden::-webkit-scrollbar {
+      display: none;
+    }
+
+    .scroller::-webkit-scrollbar {
+      width: 12px; /* width of the entire scrollbar */
+    }
+
+    .scroller::-webkit-scrollbar-track {
+      /* background: #191414;  */
+      background: #282828; /* color of the tracking area */
+    }
+
+    .scroller::-webkit-scrollbar-thumb {
+      /* background-color: #b3b3b3; */
+      background-color: hsla(0, 0%, 100%, 0.3);
+      /* creates padding around scroll thumb */
+    }
+  }
+}
