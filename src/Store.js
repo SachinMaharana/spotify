@@ -19,6 +19,8 @@ let albums = [
 const useStore = create((set) => ({
   pages: pages,
   albums: albums,
+  showDropDown: false,
+  setShowDropDown: () => set((state) => !state.showDropDown),
   selectedId: "home",
   setSelectedId: (id) => set({ selectedId: id }),
 }));

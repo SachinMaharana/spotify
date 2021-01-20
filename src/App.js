@@ -2,11 +2,20 @@ import React from "react";
 import Store from "./Store";
 
 function App() {
-  const { pages, selectedId, setSelectedId, albums } = Store((state) => ({
+  const {
+    pages,
+    selectedId,
+    setSelectedId,
+    albums,
+    showDropDown,
+    setShowDropDown,
+  } = Store((state) => ({
     pages: state.pages,
     albums: state.albums,
     selectedId: state.selectedId,
     setSelectedId: state.setSelectedId,
+    showDropDown: state.showDropDown,
+    setShowDropDown: state.setShowDropDown,
   }));
 
   return (
@@ -99,8 +108,11 @@ function App() {
                 </svg>
               </button>
             </div>
-            <div>
-              <button className="bg-light rounded-full py-2 px-2 flex items-center focus:outline-none">
+            <div className="relative">
+              <button
+                onClick={() => setShowDropDown}
+                className="bg-light rounded-full py-2 px-2 flex items-center focus:outline-none"
+              >
                 <img
                   src="https://placekitten.com/200/200"
                   className="rounded-full h-6 w-6 mr-2"
@@ -124,6 +136,16 @@ function App() {
                   />
                 </svg>
               </button>
+              {showDropDown && (
+                <div className="absolute bg-light p-2 w-full rounded mt-1">
+                  <button className="w-full py-2 text-sm text-lightest hover:text-white border-b border-white opacity-75 hover:opacity-100">
+                    Account
+                  </button>
+                  <button className="w-full py-2 text-sm text-lightest hover:text-white border-white opacity-75 hover:opacity-100">
+                    Log out
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>
