@@ -110,7 +110,7 @@ function App() {
             </div>
             <div className="relative">
               <button
-                onClick={() => setShowDropDown}
+                onClick={() => setShowDropDown()}
                 className="bg-light rounded-full py-2 px-2 flex items-center focus:outline-none"
               >
                 <img
@@ -138,10 +138,10 @@ function App() {
               </button>
               {showDropDown && (
                 <div className="absolute bg-light p-2 w-full rounded mt-1">
-                  <button className="w-full py-2 text-sm text-lightest hover:text-white border-b border-white opacity-75 hover:opacity-100">
+                  <button className="w-full py-2 text-sm text-lightest hover:text-white border-b border-white opacity-75 hover:opacity-100 focus:outline-none">
                     Account
                   </button>
-                  <button className="w-full py-2 text-sm text-lightest hover:text-white border-white opacity-75 hover:opacity-100">
+                  <button className="w-full py-2 text-sm text-lightest hover:text-white border-white opacity-75 hover:opacity-100 focus:outline-none">
                     Log out
                   </button>
                 </div>
