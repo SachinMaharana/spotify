@@ -62,9 +62,72 @@ function App() {
           </div>
         </div>
         {/* Sidebar */}
-        <div className="w-full  h-full relative bg-blue-400">
-          <div className="w-full sticky top-0 bg-yellow-300 p-2"></div>
+        {/* Main Content */}
+        <div className="w-full  h-full relative ">
+          <div className="w-full sticky top-0 px-6 py-3 flex items-center justify-between">
+            <div className="flex items-center">
+              <button className="rounded-full bg-black w-7 h-7 text-white focus:outline-none mr-3">
+                <svg
+                  className="text-xl"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+              </button>
+              <button className="rounded-full bg-black w-7 h-7 text-white focus:outline-none">
+                <svg
+                  className="text-xl"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div>
+              <button className="bg-light rounded-full py-2 px-2 flex items-center focus:outline-none">
+                <img
+                  src="https://placekitten.com/200/200"
+                  className="rounded-full h-6 w-6 mr-2"
+                  alt=""
+                />
+                <p className="text-white font-semibold text-xs mr-3">
+                  Sachin Maharana
+                </p>
+                <svg
+                  className="text-white w-4 h-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
+        {/* Main Content */}
       </div>
 
       {/* Footer */}
