@@ -9,6 +9,7 @@ function App() {
     albums,
     showDropDown,
     setShowDropDown,
+    recents,
   } = Store((state) => ({
     pages: state.pages,
     albums: state.albums,
@@ -16,6 +17,7 @@ function App() {
     setSelectedId: state.setSelectedId,
     showDropDown: state.showDropDown,
     setShowDropDown: state.setShowDropDown,
+    recents: state.recents,
   }));
 
   return (
@@ -72,7 +74,7 @@ function App() {
         </div>
         {/* Sidebar */}
         {/* Main Content */}
-        <div className="w-full  h-full relative ">
+        <div className="w-full  h-full relative overflow-y-scroll">
           <div className="w-full sticky top-0 px-6 py-3 flex items-center justify-between">
             <div className="flex items-center">
               <button className="rounded-full bg-black w-7 h-7 text-white focus:outline-none mr-3">
@@ -146,6 +148,35 @@ function App() {
                   </button>
                 </div>
               )}
+            </div>
+          </div>
+          <div className="px-6 py-3">
+            <div className="flex justify-between items-center">
+              <h1 className="pl-2 text-white font-semibold text-2xl tracking-wide hover:underline">
+                Recently Played
+              </h1>
+              <h2 className="pr-8 pt-4 text-xs  text-lightest uppercase tracking-wider hover:underline mb-3">
+                See All
+              </h2>
+            </div>
+            <div className="w-full flex flex-wrap">
+              {recents.map((a) => (
+                <div key={a.title} className="p-2 w-52">
+                  <div className="bg-light w-full h-auto p-5 rounded-lg shadow-md">
+                    <img
+                      src={a.src}
+                      className="h-auto w-full shadow mb-2 "
+                      alt=""
+                    />
+                    <h1 className="text-sm pt-2 font-semibold text-white tracking-wide">
+                      {a.title}
+                    </h1>
+                    <h2 className="text-xs pt-1 text-lightest tracking-wide pb-5">
+                      {a.artist}
+                    </h2>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
