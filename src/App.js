@@ -159,9 +159,74 @@ function App() {
                 See All
               </h2>
             </div>
-            <div className="w-full flex flex-wrap">
+            <div className="w-full grid grid-cols-auto-fill-12 gap-3">
               {recents.map((a) => (
-                <div key={a.title} className="p-2 w-52">
+                <div key={a.title} className="p-2 w-52 relative">
+                  <div className="absolute w-full h-full flex items-end justify-end p-8 opacity-0 hover:opacity-100">
+                    <div className="bg-green rounded-full h-8 w-8 flex items-center justify-center">
+                      <svg
+                        className="w-8 h-"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="bg-light w-full h-auto p-5 rounded-lg shadow-md">
+                    <img
+                      src={a.src}
+                      className="h-auto w-full shadow mb-2 "
+                      alt=""
+                    />
+                    <h1 className="text-sm pt-2 font-semibold text-white tracking-wide">
+                      {a.title}
+                    </h1>
+                    <h2 className="text-xs pt-1 text-lightest tracking-wide pb-5">
+                      {a.artist}
+                    </h2>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="px-6 py-3">
+            <div className="">
+              <h1 className="pl-2 text-white font-semibold text-2xl tracking-wide hover:underline">
+                Made For Sachin
+              </h1>
+              <h2 className="text-sm pl-2 text-lightest">
+                Get better recommendation the more you listen
+              </h2>
+            </div>
+            <div className="w-full grid grid-cols-auto-fill-12 gap-3">
+              {recents.map((a) => (
+                <div key={a.title} className="p-2 w-52 relative">
+                  <div className="absolute w-full h-full flex items-end justify-end p-8 opacity-0 hover:opacity-100">
+                    <div className="bg-green rounded-full h-8 w-8 flex items-center justify-center">
+                      <svg
+                        className="w-8 h-"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
                   <div className="bg-light w-full h-auto p-5 rounded-lg shadow-md">
                     <img
                       src={a.src}
