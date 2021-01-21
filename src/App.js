@@ -1,5 +1,11 @@
 import React from "react";
 import Store from "./Store";
+import ShuffleIcon from "@material-ui/icons/Shuffle";
+import SkipPrevious from "@material-ui/icons/SkipPrevious";
+import SkipNext from "@material-ui/icons/SkipNext";
+import Repeat from "@material-ui/icons/Repeat";
+import PlayArrow from "@material-ui/icons/PlayArrow";
+import Play from "@material-ui/icons/PlayArrow";
 
 function App() {
   const {
@@ -164,20 +170,7 @@ function App() {
                 <div key={a.title} className="p-2 w-52 relative">
                   <div className="absolute w-full h-full flex items-end justify-end p-8 opacity-0 hover:opacity-100">
                     <div className="bg-green rounded-full h-8 w-8 flex items-center justify-center">
-                      <svg
-                        className="w-8 h-"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
+                      <Play className="text-white" />
                     </div>
                   </div>
                   <div className="bg-light w-full h-auto p-5 rounded-lg shadow-md">
@@ -211,20 +204,7 @@ function App() {
                 <div key={a.title} className="p-2 w-52 relative">
                   <div className="absolute w-full h-full flex items-end justify-end p-8 opacity-0 hover:opacity-100">
                     <div className="bg-green rounded-full h-8 w-8 flex items-center justify-center">
-                      <svg
-                        className="w-8 h-"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
+                      <Play className="text-white" />
                     </div>
                   </div>
                   <div className="bg-light w-full h-auto p-5 rounded-lg shadow-md">
@@ -249,7 +229,70 @@ function App() {
       </div>
 
       {/* Footer */}
-      <div className="w-full bg-light" style={{ height: "12vh" }}></div>
+      <div
+        className="w-full flex items-center justify-between px-3 bg-light"
+        style={{ height: "12vh" }}
+      >
+        <div className="flex items-center">
+          <div>
+            <h1 className="mb -1 text-sm text-white tracking-wide">
+              Sinner in the city
+            </h1>
+            <h1 className="text-xs text-lightest tracking-wide">Coldplay</h1>
+          </div>
+          <svg
+            className="w-6 h-6 mx-8 text-base text-green"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </div>
+        <div className="flex flex-col justify-center w-1/3 items-center">
+          <div className="flex items-center space-x-5">
+            <button className="text-lg text-lightest hover:text-white">
+              <ShuffleIcon className="" />
+            </button>
+            <button className="text-lg text-lightest hover:text-white">
+              <SkipPrevious />
+            </button>
+            <button className="text-lg rounded-full h-10 w-10 flex items-center justify-center mx-3 border-lightest border text-lightest hover:text-white">
+              <PlayArrow />
+            </button>
+            <button className="text-lg text-lightest hover:text-white">
+              <SkipNext />
+            </button>
+            <button className="text-lg text-lightest hover:text-white">
+              <Repeat />
+            </button>
+          </div>
+          <div className="w-full">
+            <div className="w-full h-1 bg-lightest rounded-full mt-4"></div>
+          </div>
+        </div>
+        <div className="flex items-center">
+          <svg
+            className="w-6 h-6 mx-4 text-base text-lightest"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
+            />
+          </svg>
+          <div className="w-20 bg-lightest rounded-full h-1"></div>
+        </div>
+      </div>
     </div>
   );
 }
