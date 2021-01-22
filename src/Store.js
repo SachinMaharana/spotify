@@ -21,6 +21,11 @@ const useStore = create((set) => ({
   pages: pages,
   songs: chillHop(),
   selectedSong: chillHop()[0],
+  setSelectedSong: (id) => {
+    set((state) => {
+      return { selectedSong: state.songs.find((s) => s.id === id) };
+    });
+  },
   albums: albums,
   showDropDown: false,
   setShowDropDown: () =>
@@ -53,10 +58,10 @@ function chillHop() {
       active: false,
     },
     {
-      name: "Keep Going",
+      name: "Keep Going And Don't Stop And Please Stop",
       cover:
         "https://chillhop.com/wp-content/uploads/2020/07/ff35dede32321a8aa0953809812941bcf8a6bd35-1024x1024.jpg",
-      artist: "Swørn",
+      artist: "Swørn Keep Going And Don't Stop And Please Stop",
       audio: "https://mp3.chillhop.com/serve.php/?mp3=9222",
       color: ["#CD607D", "#c94043"],
       id: uuidv4(),

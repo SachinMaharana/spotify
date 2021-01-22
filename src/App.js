@@ -6,6 +6,9 @@ import SkipNext from "@material-ui/icons/SkipNext";
 import Repeat from "@material-ui/icons/Repeat";
 import PlayArrow from "@material-ui/icons/PlayArrow";
 import Play from "@material-ui/icons/PlayArrow";
+import VolumeUp from "@material-ui/icons/VolumeUp";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import PictureInPictureIcon from "@material-ui/icons/PictureInPicture";
 
 function App() {
   const {
@@ -17,6 +20,7 @@ function App() {
     setShowDropDown,
     songs,
     selectedSong,
+    setSelectedSong,
   } = Store((state) => ({
     pages: state.pages,
     albums: state.albums,
@@ -26,11 +30,12 @@ function App() {
     setShowDropDown: state.setShowDropDown,
     songs: state.songs,
     selectedSong: state.selectedSong,
+    setSelectedSong: state.setSelectedSong,
   }));
 
   return (
     <div className="bg-dark h-screen font-poppins">
-      <div className="flex" style={{ height: "88vh" }}>
+      <div className="flex" style={{ height: "90vh" }}>
         {/* SideBar */}
         <div className="w-56 bg-black h-full flex-none">
           <div className="p-6">
@@ -82,7 +87,7 @@ function App() {
         </div>
         {/* Sidebar */}
         {/* Main Content */}
-        <div className="w-full  h-full relative overflow-y-scroll">
+        <div className="w-full  h-full relative overflow-y-scroll scroller">
           <div className="w-full sticky top-0 px-6 py-3 flex items-center justify-between">
             <div className="flex items-center">
               <button className="rounded-full bg-black w-7 h-7 text-white focus:outline-none mr-3">
@@ -172,13 +177,8 @@ function App() {
                 <div
                   key={song.name}
                   className="p-2 w-52 relative cursor-pointer"
-                  onClick={() => console.log("Clicked")}
+                  onClick={() => setSelectedSong(song.id)}
                 >
-                  {/* <div className="absolute w-full h-full flex items-center justify-end p-10 opacity-0 hover:opacity-100 transition duration-300 ease-out transform hover:-translate-y-3">
-                    <button className="focus:outline-none bg-green shadow-inner rounded-full h-10 w-10 flex items-center justify-center">
-                      <Play className="text-white" />
-                    </button>
-                  </div> */}
                   <div className="relative bg-dim w-full h-auto p-5 shadow-2xl rounded-lg hover:bg-light">
                     <div className="absolute w-full h-full flex items-center justify-end p-10 opacity-0 hover:opacity-100 transition duration-300 ease-out transform hover:-translate-y-3">
                       <button className="focus:outline-none bg-green shadow-inner rounded-full h-10 w-10 flex items-center justify-center">
@@ -190,7 +190,7 @@ function App() {
                       className="h-auto w-full shadow mb-2 "
                       alt=""
                     />
-                    <h1 className="text-sm pt-2 font-semibold text-white tracking-wide">
+                    <h1 className="text-sm pt-2 font-semibold text-white tracking-wide truncate">
                       {song.name}
                     </h1>
                     <p className="text-xs pt-1 text-lightest tracking-wide pb-5 truncate">
@@ -205,32 +205,31 @@ function App() {
         {/* Main Content */}
       </div>
 
-      {/* Footer */}
+      {/* Footer Start */}
       <div
         className="w-full flex items-center justify-between px-5 bg-light"
-        style={{ height: "12vh" }}
+        style={{ height: "10vh" }}
       >
-        <div className="flex items-center">
-          <div>
-            <h1 className="mb-1 text-sm text-white tracking-wide">
-              Sinner in the city
+        <div className="flex items-center w-1/5">
+          <div className="w-1/2">
+            <h1 className="text-sm text-white tracking-wide">
+              {selectedSong.name}
             </h1>
-            <h1 className="text-xs text-lightest tracking-wide">Coldplay</h1>
+            <h1 className="text-xs text-lightest tracking-wide">
+              {selectedSong?.artist.length > 30
+                ? selectedSong.artist.substring(0, 30) + "..."
+                : selectedSong.artist}
+            </h1>
           </div>
-          <svg
-            className="w-6 h-6 mx-8 text-base text-green"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fillRule="evenodd"
-              d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-              clipRule="evenodd"
+          <div className="w-1/2 flex space-x-2">
+            <FavoriteIcon fontSize="small" className="text-green" />
+            <PictureInPictureIcon
+              fontSize="small"
+              className="text-white opacity-50 hover:opacity-80 text-sm"
             />
-          </svg>
+          </div>
         </div>
-        <div className="flex flex-col justify-center w-1/3 items-center">
+        <div className="flex flex-col justify-center w-2/5 items-center">
           <div className="flex items-center space-x-5">
             <button className="focus:outline-none text-lg text-lightest hover:text-white">
               <ShuffleIcon className="" />
@@ -252,24 +251,12 @@ function App() {
             <div className="w-full h-1 bg-lightest rounded-full mt-4"></div>
           </div>
         </div>
-        <div className="flex items-center">
-          <svg
-            className="w-6 h-6 mx-4 text-base text-lightest"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
-            />
-          </svg>
+        <div className="flex items-center w-1/5 justify-end">
+          <VolumeUp className="w-6 h-6 mx-4 text-base text-lightest" />
           <div className="w-20 bg-lightest rounded-full h-1"></div>
         </div>
       </div>
+      {/* Footer End */}
     </div>
   );
 }
