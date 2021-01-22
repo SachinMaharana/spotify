@@ -15,7 +15,8 @@ function App() {
     albums,
     showDropDown,
     setShowDropDown,
-    recents,
+    songs,
+    selectedSong,
   } = Store((state) => ({
     pages: state.pages,
     albums: state.albums,
@@ -23,7 +24,8 @@ function App() {
     setSelectedId: state.setSelectedId,
     showDropDown: state.showDropDown,
     setShowDropDown: state.setShowDropDown,
-    recents: state.recents,
+    songs: state.songs,
+    selectedSong: state.selectedSong,
   }));
 
   return (
@@ -166,59 +168,34 @@ function App() {
               </h2>
             </div>
             <div className="w-full grid grid-cols-auto-fill-12 gap-3">
-              {recents.map((a) => (
-                <div key={a.title} className="p-2 w-52 relative">
-                  <div className="absolute w-full h-full flex items-end justify-end p-8 opacity-0 hover:opacity-100">
-                    <div className="bg-green rounded-full h-8 w-8 flex items-center justify-center">
+              {songs.map((song) => (
+                <div
+                  key={song.name}
+                  className="p-2 w-52 relative cursor-pointer"
+                  onClick={() => console.log("Clicked")}
+                >
+                  {/* <div className="absolute w-full h-full flex items-center justify-end p-10 opacity-0 hover:opacity-100 transition duration-300 ease-out transform hover:-translate-y-3">
+                    <button className="focus:outline-none bg-green shadow-inner rounded-full h-10 w-10 flex items-center justify-center">
                       <Play className="text-white" />
+                    </button>
+                  </div> */}
+                  <div className="relative bg-dim w-full h-auto p-5 shadow-2xl rounded-lg hover:bg-light">
+                    <div className="absolute w-full h-full flex items-center justify-end p-10 opacity-0 hover:opacity-100 transition duration-300 ease-out transform hover:-translate-y-3">
+                      <button className="focus:outline-none bg-green shadow-inner rounded-full h-10 w-10 flex items-center justify-center">
+                        <Play className="text-white" />
+                      </button>
                     </div>
-                  </div>
-                  <div className="bg-light w-full h-auto p-5 rounded-lg shadow-md">
                     <img
-                      src={a.src}
+                      src={song.cover}
                       className="h-auto w-full shadow mb-2 "
                       alt=""
                     />
                     <h1 className="text-sm pt-2 font-semibold text-white tracking-wide">
-                      {a.title}
+                      {song.name}
                     </h1>
-                    <h2 className="text-xs pt-1 text-lightest tracking-wide pb-5">
-                      {a.artist}
-                    </h2>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="px-6 py-3">
-            <div className="">
-              <h1 className="pl-2 text-white font-semibold text-2xl tracking-wide hover:underline">
-                Made For Sachin
-              </h1>
-              <h2 className="text-sm pl-2 text-lightest">
-                Get better recommendation the more you listen
-              </h2>
-            </div>
-            <div className="w-full grid grid-cols-auto-fill-12 gap-3">
-              {recents.map((a) => (
-                <div key={a.title} className="p-2 w-52 relative">
-                  <div className="absolute w-full h-full flex items-end justify-end p-8 opacity-0 hover:opacity-100">
-                    <div className="bg-green rounded-full h-8 w-8 flex items-center justify-center shadow-lg ">
-                      <Play className="text-white" />
-                    </div>
-                  </div>
-                  <div className="bg-light w-full h-auto p-5 rounded-lg shadow-md">
-                    <img
-                      src={a.src}
-                      className="h-auto w-full shadow mb-2 "
-                      alt=""
-                    />
-                    <h1 className="text-sm pt-2 font-semibold text-white tracking-wide">
-                      {a.title}
-                    </h1>
-                    <h2 className="text-xs pt-1 text-lightest tracking-wide pb-5">
-                      {a.artist}
-                    </h2>
+                    <p className="text-xs pt-1 text-lightest tracking-wide pb-5 truncate">
+                      {song.artist}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -255,19 +232,19 @@ function App() {
         </div>
         <div className="flex flex-col justify-center w-1/3 items-center">
           <div className="flex items-center space-x-5">
-            <button className="text-lg text-lightest hover:text-white">
+            <button className="focus:outline-none text-lg text-lightest hover:text-white">
               <ShuffleIcon className="" />
             </button>
-            <button className="text-lg text-lightest hover:text-white">
+            <button className="focus:outline-none text-lg text-lightest hover:text-white">
               <SkipPrevious />
             </button>
-            <button className="text-lg rounded-full h-10 w-10 flex items-center justify-center mx-3 border-lightest border text-lightest hover:text-white">
+            <button className="focus:outline-none text-lg rounded-full h-10 w-10 flex items-center justify-center mx-3 border-lightest border text-lightest hover:text-white">
               <PlayArrow />
             </button>
-            <button className="text-lg text-lightest hover:text-white">
+            <button className="focus:outline-none text-lg text-lightest hover:text-white">
               <SkipNext />
             </button>
-            <button className="text-lg text-lightest hover:text-white">
+            <button className="focus:outline-none text-lg text-lightest hover:text-white">
               <Repeat />
             </button>
           </div>

@@ -15,11 +15,12 @@ module.exports = {
         light: "#282828",
         lightest: "#B3B3B3",
         darkest: "#191414",
+        dim: "#181818",
       },
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/line-clamp")],
 };
