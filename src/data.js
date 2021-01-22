@@ -39,11 +39,12 @@ function chillHop() {
       active: false,
     },
     {
-      name: "Keep Going",
+      name: "Meherama",
       cover:
         "https://chillhop.com/wp-content/uploads/2020/07/ff35dede32321a8aa0953809812941bcf8a6bd35-1024x1024.jpg",
       artist: "Swørn",
-      audio: "https://mp3.chillhop.com/serve.php/?mp3=9222",
+      audio:
+        "https://drive.google.com/uc?export=download&id=1WO2PwUt_UbOGt2H5VXgH0Lnkej1pI9qf",
       color: ["#CD607D", "#c94043"],
       id: uuidv4(),
       active: false,
@@ -59,22 +60,34 @@ function chillHop() {
       active: false,
     },
     {
-      name: "Reflection",
+      name: "Bandeya",
       cover:
         "https://chillhop.com/wp-content/uploads/2020/07/ff35dede32321a8aa0953809812941bcf8a6bd35-1024x1024.jpg",
-      artist: "Swørn",
+      artist: "Arijith Singh",
       audio:
-        "https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_700KB.mp3",
+        "https://drive.google.com/uc?export=download&id=1JHmvDVvb7Jd4Y-ny1rzo_P-S3w-olOjB",
       color: ["#CD607D", "#c94043"],
       id: uuidv4(),
       active: false,
     },
     {
-      name: "Under the City Stars",
+      name: "Teher Ja",
       cover:
         "https://chillhop.com/wp-content/uploads/2020/09/0255e8b8c74c90d4a27c594b3452b2daafae608d-1024x1024.jpg",
-      artist: "Aso, Middle School, Aviino",
-      audio: "https://mp3.chillhop.com/serve.php/?mp3=10074",
+      artist: "October",
+      audio:
+        "https://drive.google.com/uc?export=download&id=1C5-t0ux_sQodTRq2a0YFByboQw-pf74-",
+      color: ["#205950", "#2ab3bf"],
+      id: uuidv4(),
+      active: false,
+    },
+    {
+      name: "Perfect",
+      cover:
+        "https://chillhop.com/wp-content/uploads/2020/09/0255e8b8c74c90d4a27c594b3452b2daafae608d-1024x1024.jpg",
+      artist: "Ed",
+      audio:
+        "https://drive.google.com/uc?export=download&id=1IVSNUkRc_1qAj61XOcyZP0CD0KZ0PGSu",
       color: ["#205950", "#2ab3bf"],
       id: uuidv4(),
       active: false,

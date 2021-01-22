@@ -71,7 +71,7 @@ const TopBar = () => {
           </svg>
         </button>
         {showDropDown && (
-          <div className="absolute bg-light p-2 w-full rounded mt-1">
+          <div className="absolute z-40 bg-light p-2 w-full rounded mt-1">
             <button className="w-full py-2 text-sm text-lightest hover:text-white border-b border-white opacity-75 hover:opacity-100 focus:outline-none">
               Account
             </button>
