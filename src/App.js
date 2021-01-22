@@ -156,7 +156,7 @@ function App() {
               )}
             </div>
           </div>
-          <div className="px-6 py-3">
+          <div className="px-8 py-3">
             <div className="flex justify-between items-center">
               <h1 className="pl-2 text-white font-semibold text-2xl tracking-wide hover:underline">
                 Recently Played
@@ -203,7 +203,7 @@ function App() {
               {recents.map((a) => (
                 <div key={a.title} className="p-2 w-52 relative">
                   <div className="absolute w-full h-full flex items-end justify-end p-8 opacity-0 hover:opacity-100">
-                    <div className="bg-green rounded-full h-8 w-8 flex items-center justify-center">
+                    <div className="bg-green rounded-full h-8 w-8 flex items-center justify-center shadow-lg ">
                       <Play className="text-white" />
                     </div>
                   </div>
@@ -230,12 +230,12 @@ function App() {
 
       {/* Footer */}
       <div
-        className="w-full flex items-center justify-between px-3 bg-light"
+        className="w-full flex items-center justify-between px-5 bg-light"
         style={{ height: "12vh" }}
       >
         <div className="flex items-center">
           <div>
-            <h1 className="mb -1 text-sm text-white tracking-wide">
+            <h1 className="mb-1 text-sm text-white tracking-wide">
               Sinner in the city
             </h1>
             <h1 className="text-xs text-lightest tracking-wide">Coldplay</h1>
